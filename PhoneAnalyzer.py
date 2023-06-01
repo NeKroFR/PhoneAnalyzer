@@ -40,9 +40,21 @@ def format(number):
         IN: "06 18 34 22 14"
         OUT: ["0618342214", "+33 6 18 34 22 14", "(06) 18 34 22 14", "06 18 34 22 14", "06-18-34-22-14"]
     """
-    #todo
-    return [number]
+    n = number.replace(" ", "")
+    if n[0] == "+":
+        n = "0"+n[3:]
+    n_space =""
+    space = 0
+    for digit in n:
+        if space == 2:
+            space = 1
+            n_space += " "+digit
+        else:
+            n_space += digit
+            space += 1
 
+    numbers = [n, "+33"+n_space[1:],n_space,"("+n_space[0:2]+")"+n_space[2:],n_space.replace(" ","-")]
+    return numbers
 
 
 def analyse(number):
