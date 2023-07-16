@@ -18,15 +18,9 @@ def is_valid(phone_number):
     verifie that the phone number is valid
     """
     cleaned_number = re.sub(r'\D', '', phone_number)
-    patterns = [
-        r'^\d{10}$',    # 10-digit national format
-        r'^\+\d{1,3}\d{4,14}$',     # International format with country code
-        r'^\(\d{1,3}\)\d{6,12}$',       # Format with regional access code
-        r'^\d{3}[-\s]\d{3}[-\s]\d{4}$'      # Format with spaces or dashes
-    ]
-
-    for pattern in patterns:
-        if re.match(pattern, cleaned_number):
+    if cleaned_number[0] != "0":
+        cleaned_number = "0" + cleaned_number[2:]
+    if len(cleaned_number) == 10:
             return True
     return False
 
@@ -62,16 +56,12 @@ def analyse(number):
     print(number)
 
 if __name__ == "__main__":
-    a = len(sys.argv)
-    if a == 1:
+    if len(sys.argv) == 1:
         number = gui()
-     
-    elif a == 2:
-        number = sys.argv[1]
     else:
-        print("\033[0;31mError: too many arguments\033[0m")
-        exit()
+        number = "".join(sys.argv[1:])
     if is_valid(number):
         analyse(number)
     else:
         print("\033[0;31mError: invalid phone number\033[0m")
+        exit()
