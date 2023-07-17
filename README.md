@@ -4,6 +4,13 @@
 
 ⚠️curently work only on french numbers⚠️
 
+# Installation
+```
+git clone https://github.com/NeKroFR/PhoneAnalyzer.git
+cd PhoneAnalyzer/ 
+pip3 install -r requierments.txt
+```
+
 # Usage
 
 ```

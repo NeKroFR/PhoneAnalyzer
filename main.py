@@ -1,4 +1,5 @@
 import sys, re
+from googlesearch import search
 
 def gui():
     banner = """\033[92m
