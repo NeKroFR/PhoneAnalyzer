@@ -1,4 +1,5 @@
 import sys, re
+from googlesearch import search
 
 def gui():
     banner = """\033[92m
@@ -24,15 +25,13 @@ def is_valid(phone_number):
             return True
     return False
 
-
-
 def format(number):
     """
     Number to a list of diferent formats of this number.
     ---
     EX:
-        IN: "06 18 34 22 14"
-        OUT: ["0618342214", "+33 6 18 34 22 14", "(06) 18 34 22 14", "06 18 34 22 14", "06-18-34-22-14"]
+        IN: "0618342214"
+        OUT: ['0618342214', '+33618342214', '(+33)6 18 34 22 14', '(06) 18 34 22 14', '06-18-34-22-14']
     """
     n = number.replace(" ", "")
     if n[0] == "+":
@@ -47,13 +46,15 @@ def format(number):
             n_space += digit
             space += 1
 
-    numbers = [n, "+33"+n_space[1:],n_space,"("+n_space[0:2]+")"+n_space[2:],n_space.replace(" ","-")]
+    numbers = [n, "+33"+n[1:],"(+33)"+n_space[1:],"("+n_space[0:2]+")"+n_space[2:],n_space.replace(" ","-")]
+    
     return numbers
 
 
 def analyse(number):
     number = format(number)
     print(number)
+    #need to google dork now
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
@@ -65,3 +66,7 @@ if __name__ == "__main__":
     else:
         print("\033[0;31mError: invalid phone number\033[0m")
         exit()
+
+# add more formats -> https://sundowndev.github.io/phoneinfoga/resources/formatting/
+# phoneinfoga doc: https://sundowndev.github.io/phoneinfoga/resources/additional-resources/
+# doc: https://sundowndev.medium.com/phone-number-scanning-osint-recon-tool-6ad8f0cac27b
