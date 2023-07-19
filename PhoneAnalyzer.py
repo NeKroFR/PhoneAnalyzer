@@ -52,22 +52,27 @@ def format(number):
 
 
 def analyse(number):
-    number = format(number)
-    print(number)
-    #need to google dork now
-
+    #optimize search requests + patch error
+    numbers = format(number)
+    results = []
+    print("\033[1;35mDigging information from the internet...\033[0m")
+    for num in numbers:
+        request = search(num)
+        for result in request:
+            if not result in results:
+                results.append(result)
+    print("\033[92m"+len(results)+" results found!\033[0m")
+    for i in range(len(results)):
+        print(i+1,results[i])
+    
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         number = gui()
     else:
         number = "".join(sys.argv[1:])
     if is_valid(number):
-        print("\033[92m Valid phone number\033[0m")
+        print("\033[92mValid phone number\033[0m")
         analyse(number)
     else:
         print("\033[0;31mError: invalid phone number\033[0m")
         exit()
-
-# add more formats -> https://sundowndev.github.io/phoneinfoga/resources/formatting/
-# phoneinfoga doc: https://sundowndev.github.io/phoneinfoga/resources/additional-resources/
-# doc: https://sundowndev.medium.com/phone-number-scanning-osint-recon-tool-6ad8f0cac27b
