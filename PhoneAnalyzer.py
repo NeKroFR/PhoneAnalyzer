@@ -62,6 +62,7 @@ if __name__ == "__main__":
     else:
         number = "".join(sys.argv[1:])
     if is_valid(number):
+        print("\033[92m Valid phone number\033[0m")
         analyse(number)
     else:
         print("\033[0;31mError: invalid phone number\033[0m")
