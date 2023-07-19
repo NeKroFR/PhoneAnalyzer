@@ -1,5 +1,4 @@
-import sys, re
-from googlesearch import search
+import sys, re, googlesearch
 
 def gui():
     banner = """\033[92m
@@ -55,13 +54,13 @@ def analyse(number):
     #optimize search requests + patch error
     numbers = format(number)
     results = []
-    print("\033[1;35mDigging information from the internet...\033[0m")
+    print("\033[1;35mDigging informations from the internet...\033[0m")
     for num in numbers:
-        request = search(num)
+        request = googlesearch.search('"'+num+'"', pause=2.0, user_agent=googlesearch.get_random_user_agent())
         for result in request:
             if not result in results:
                 results.append(result)
-    print("\033[92m"+len(results)+" results found!\033[0m")
+    print("\033[92m"+str(len(results))+" results found!\033[0m")
     for i in range(len(results)):
         print(i+1,results[i])
     
