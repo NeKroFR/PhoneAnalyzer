@@ -1,4 +1,4 @@
-import sys, re, googlesearch
+import sys, re,time, googlesearch
 
 def gui():
     banner = """\033[92m
@@ -51,15 +51,17 @@ def format(number):
 
 
 def analyse(number):
-    #optimize search requests + patch error
     numbers = format(number)
     results = []
     print("\033[1;35mDigging informations from the internet...\033[0m")
+    print("This action can take time")
     for num in numbers:
         request = googlesearch.search('"'+num+'"', pause=2.0, user_agent=googlesearch.get_random_user_agent())
         for result in request:
             if not result in results:
                 results.append(result)
+        time.sleep(0.5)
+
     print("\033[92m"+str(len(results))+" results found!\033[0m")
     for i in range(len(results)):
         print(i+1,results[i])
