@@ -31,4 +31,4 @@ python3 PhoneAnalyzer.py phone_number
 
 # Want to contribute?
 
-[Here](Roadmap.md) is the roadmap. Just add a pull request and if it's good I will merge it 
+[Here](todo.md) you will find what to work on. Just add a pull request and if it's good I will merge it 
