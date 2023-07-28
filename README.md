@@ -1,8 +1,9 @@
 # PhoneAnalyzer
 
-## simple phone number osint tool 
+## A phone number osint tool wich gives you all the websites where the phone number is on 
 
-⚠️curently work only on french numbers⚠️
+![alt text](https://i.imgur.com/lc4BR9Z.png)
+
 
 # Installation
 ```
@@ -13,11 +14,21 @@ pip3 install -r requierments.txt
 
 # Usage
 
+**using the gui:**
 ```
-python3 PhoneAnalyzer.py >>> will display the gui
+python3 PhoneAnalyzer.py 
 ```
 or
 ```
-python3 PhoneAnalyzer.py phone_number >>> perform the search on this number
+python3 PhoneAnalyzer.py phone_number
 ```
-⚠️The script is not safe and may can crash⚠️
+
+# Disclaimer
+
+- ⚠️The script may can crash if you use it multiple times on a short period of time⚠️
+- ⚠️The script curently work only on french phone numbers⚠️
+
+
+# Want to contribute?
+
+[Here](Roadmap.md) is the roadmap. Just add a pull request and if it's good I will merge it 
