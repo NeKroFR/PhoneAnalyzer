@@ -1,34 +1,35 @@
 # PhoneAnalyzer
 
-## A phone number osint tool wich gives you all the websites where the phone number is on 
+**PhoneAnalyzer** is an OSINT tool designed to identify websites where a given phone number appears.
 
-![alt text](https://i.imgur.com/lc4BR9Z.png)
+![PhoneAnalyzer](https://i.imgur.com/lc4BR9Z.png)
 
+## Installation
 
-# Installation
-```
+```bash
 git clone https://github.com/NeKroFR/PhoneAnalyzer.git
-cd PhoneAnalyzer/ 
-pip3 install -r requierments.txt
+cd PhoneAnalyzer/
+pip3 install -r requirements.txt
 ```
+## Usage
 
-# Usage
-
-**using the gui:**
+**Using the gui:**
 ```
 python3 PhoneAnalyzer.py 
 ```
-or
+**Or directly provide a phone number:**
 ```
 python3 PhoneAnalyzer.py phone_number
 ```
 
-# Disclaimer
+## ⚠️ Disclaimer ⚠️
 
-- ⚠️The script may can crash if you use it multiple times on a short period of time⚠️
-- ⚠️The script curently work only on french phone numbers⚠️
+- Currently, the script is working for French phone numbers only.
+- The script may won't provide results if used repeatedly in a short period of time without using proxy.
+- The tool may return a significant number of false positives. Always verify the results manually.
 
+## Contributing
 
-# Want to contribute?
+Interested in contributing? Check out the [to-do list](todo.md).
+Submit a pull request, and if it's a good fit, I'll be happy to merge it!
 
-[Here](todo.md) you will find what to work on. Just add a pull request and if it's good I will merge it 
