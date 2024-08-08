@@ -1,4 +1,6 @@
-import sys, re,time, googlesearch
+import sys, re,time
+from search import Search
+
 
 def gui():
     banner = """\033[92m
@@ -44,29 +46,28 @@ def format(number):
         else:
             n_space += digit
             space += 1
-
     numbers = [n, "+33"+n[1:],"(+33)"+n_space[1:],"("+n_space[0:2]+")"+n_space[2:],n_space.replace(" ","-")]
-    
     return numbers
-
 
 def analyse(number):
     numbers = format(number)
     results = []
     print("\033[1;35mDigging informations from the internet...\033[0m")
     print("This action can take time")
+    search = Search()
     for num in numbers:
-        request = googlesearch.search('"'+num+'"', pause=2.0, user_agent=googlesearch.get_random_user_agent())
+        request = search.search('"'+num+'"')
         for result in request:
             if not result in results:
                 results.append(result)
-        time.sleep(0.5)
+        time.sleep(delay)
 
     print("\033[92m"+str(len(results))+" results found!\033[0m")
     for i in range(len(results)):
         print(i+1,results[i])
     
 if __name__ == "__main__":
+    delay = 3
     if len(sys.argv) == 1:
         number = gui()
     else:
