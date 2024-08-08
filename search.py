@@ -46,7 +46,7 @@ class Search:
         except requests.RequestException as e:
             print(f"Error fetching URL: {e}")
             return []
-        print(f"Searching for {query}...")
+        #print(f"Searching for {query}...")
         soup = BeautifulSoup(response.text, 'html.parser')
         for link in soup.find_all("a"):
             href = link.get("href")
