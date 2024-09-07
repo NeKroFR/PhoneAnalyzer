@@ -55,16 +55,17 @@ def analyse(number):
     print("\033[1;35mDigging informations from the internet...\033[0m")
     print("This action can take time")
     search = Search()
+    page_count = 0
     for num in numbers:
         request = search.search('"'+num+'"')
         for result in request:
             if not result in results:
-                results.append(result)
+                print('[+]', result)
+                page_count += 1
         time.sleep(delay)
 
-    print("\033[92m"+str(len(results))+" results found!\033[0m")
-    for i in range(len(results)):
-        print(i+1,results[i])
+    print("\033[92m"+str(page_count)+" results found!\033[0m")
+
     
 if __name__ == "__main__":
     delay = 3
